@@ -14,6 +14,10 @@ const Tasks = () => {
     setTaskValue(""); //clear the entered task
   };
 
+  const deleteTask = (removedTask) => {
+    setTasks(tasks.filter((task) => task !== removedTask));
+  }; // delete a task
+
   return (
     <div className="to-dos">
       <div className="title">
@@ -29,15 +33,16 @@ const Tasks = () => {
         <button onClick={Add}>Add</button>
       </div>
       <div>
-                <h3>Tasks</h3>
-                <ol>
-                    {tasks.map(( task, index ) => (
-                        <li key={index}>
-                            {task}
-                        </li> //create a list of added tasks
-                    ))}
-                </ol>
-            </div>
+        <h3>Tasks</h3>
+        <ol>
+          {tasks.map((task, index) => (
+            <li key={index}>
+              {task}
+              <button onClick={() => deleteTask(task)}>Delete</button>
+            </li> //create a list of added tasks
+          ))}
+        </ol>
+      </div>
     </div>
   );
 };
