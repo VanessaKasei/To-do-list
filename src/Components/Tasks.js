@@ -20,6 +20,7 @@ const Tasks = () => {
           onChange={onChange}
         />
 
+        <button onClick={Add}>Add</button>
       </div>
     </div>
   );
