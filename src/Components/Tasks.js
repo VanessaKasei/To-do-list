@@ -32,7 +32,7 @@ const Tasks = () => {
                 <h3>Tasks</h3>
                 <ol>
                     {tasks.map(( task, index ) => (
-                        <li>
+                        <li key={index}>
                             {task}
                         </li> //create a list of added tasks
                     ))}
