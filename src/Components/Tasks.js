@@ -28,6 +28,16 @@ const Tasks = () => {
 
         <button onClick={Add}>Add</button>
       </div>
+      <div>
+                <h3>Tasks</h3>
+                <ol>
+                    {tasks.map(( task, index ) => (
+                        <li>
+                            {task}
+                        </li> //create a list of added tasks
+                    ))}
+                </ol>
+            </div>
     </div>
   );
 };
