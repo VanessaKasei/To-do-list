@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Tasks.css";
 
 const Tasks = () => {
   const [taskValue, setTaskValue] = useState(""); //store the added task using a string
@@ -12,12 +13,12 @@ const Tasks = () => {
   };
 
   const Add = () => {
-    if (validateInput(taskValue)) { 
+    if (validateInput(taskValue)) {
       setTasks([...tasks, taskValue]);
       setTaskValue(""); //clear the entered task
       showError(null);
     } else {
-        showError("Enter a task!"); // error message to be displayed for adding blank "input"
+      showError("Enter a task!"); // error message to be displayed for adding blank "input"
     }
   };
 
@@ -38,26 +39,27 @@ const Tasks = () => {
   };
   const validateInput = (input) => {
     return input.trim() !== "";
-  };//checks if the input is empty
+  }; //checks if the input is empty
   return (
     <div className="to-dos">
-      <div className="title">
-      </div>
       {error && <p style={{ color: "red", fontWeight: "bold" }}>{error}</p>}
-      <div>
-        <h3>My to do's</h3>
+      <div className="title">
+        <h3>My to-do's</h3>
       </div>
       <div>
         <input
+          className="input-field"
           placeholder="Enter a task..."
           value={taskValue}
           onChange={onChange}
         />
 
-        <button onClick={Add}>Add</button>
+        <button onClick={Add} className="add-button">
+          Add
+        </button>
       </div>
       <div>
-        <h3>Tasks</h3>
+        <h3>Do's</h3>
         <ol>
           {tasks.map((task, index) => (
             <li key={index}>
@@ -68,15 +70,28 @@ const Tasks = () => {
                     value={editedText}
                     onChange={(event) => setEditedText(event.target.value)}
                   />
-                  <button onClick={() => saveEditedTask(editedText, task)}>
+                  <button
+                    onClick={() => saveEditedTask(editedText, task)}
+                    className="save-button"
+                  >
                     Save
                   </button>
                 </div>
               ) : (
                 <div>
                   {task}
-                  <button onClick={() => deleteTask(task)}>Delete</button>
-                  <button onClick={() => editTask(task)}>Edit</button>
+                  <button
+                    onClick={() => deleteTask(task)}
+                    className="delete-button"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    onClick={() => editTask(task)}
+                    className="edit-button"
+                  >
+                    Edit
+                  </button>
                 </div>
               )}
             </li> //create a list of added tasks
