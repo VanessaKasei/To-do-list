@@ -5,15 +5,20 @@ const Tasks = () => {
   const [tasks, setTasks] = useState([]); //store all tasks in an array
   const [editingTask, setEditingTask] = useState(null); // keep track of the task being edited
   const [editedText, setEditedText] = useState(""); //update text of the task
+  const [error, showError] = useState(null);
+
   let onChange = (event) => {
     setTaskValue(event.target.value);
   };
 
   const Add = () => {
-    if (taskValue.trim() !== "") {
-      setTasks([...tasks, taskValue]); //add new task
+    if (validateInput(taskValue)) { 
+      setTasks([...tasks, taskValue]);
+      setTaskValue(""); //clear the entered task
+      showError(null);
+    } else {
+        showError("Enter a task!"); // error message to be displayed for adding blank "input"
     }
-    setTaskValue(""); //clear the entered task
   };
 
   const deleteTask = (removedTask) => {
@@ -31,10 +36,15 @@ const Tasks = () => {
     setTasks(updatedTasks);
     setEditingTask(null); // Exit edit mode
   };
-
+  const validateInput = (input) => {
+    return input.trim() !== "";
+  };//checks if the input is empty
   return (
     <div className="to-dos">
       <div className="title">
+      </div>
+      {error && <p style={{ color: "red", fontWeight: "bold" }}>{error}</p>}
+      <div>
         <h3>My to do's</h3>
       </div>
       <div>
@@ -59,7 +69,7 @@ const Tasks = () => {
                     onChange={(event) => setEditedText(event.target.value)}
                   />
                   <button onClick={() => saveEditedTask(editedText, task)}>
-                    Save 
+                    Save
                   </button>
                 </div>
               ) : (
