@@ -3,7 +3,7 @@
 This is a to-do-list application, created using ReactJs. 
 
 ## Usage
-It allows users to add a task by clicking the add buton, delete a task by clicking the delete button and also edit the task that they have already  by clicking the edit button. There is also a save button  that appears when a user is editing a task and it saves the changes made to the edited task when clicked. However, it prevents one from adding a "blank" task initially.
+It allows users to add a task by clicking the add button, delete a task by clicking the delete button and also edit the task that they have already  by clicking the edit button. There is also a save button  that appears when a user is editing a task and it saves the changes made to the edited task when clicked. However, it prevents one from adding a "blank" task initially.
 
 ## Installation Instructions
 
@@ -21,7 +21,7 @@ Before you begin, ensure you have met the following requirements:
 
    git clone (link to repository)
 
-2. Navugate to the project directory using the 'cd to-do-list' command
+2. Navigate to the project directory using the 'cd to-do-list' command
 
 3. Install project dependancines using the command 'npm install'
 
