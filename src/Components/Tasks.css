@@ -5,9 +5,17 @@
 
 .add-button,
 .delete-button,
-.edit-button {
+.edit-button,
+.save-button {
     background-color: white;
     border-radius: 50px;
     padding: 6px 10px;
     margin-left: 20px;
+    font-size: 10;
 }
+
+.input-field {
+    padding: 10px;
+    font-size: 1em;
+}
+
